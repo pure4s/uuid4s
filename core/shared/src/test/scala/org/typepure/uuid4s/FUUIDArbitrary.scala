@@ -1,4 +1,4 @@
-package com.typepure.uuid4s
+package org.typepure.uuid4s
 
 import java.util.{UUID => JUUID}
 

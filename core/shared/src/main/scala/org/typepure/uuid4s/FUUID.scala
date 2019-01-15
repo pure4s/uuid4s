@@ -1,14 +1,13 @@
-package com.typepure.uuid4s
+package org.typepure.uuid4s
 
 import java.util.{UUID => JUUID}
-
 import cats.{Hash, Order, Show}
 import cats.effect.Sync
 import cats.implicits._
 
 final class UUID(private val uuid: JUUID) {
   /**
-    * @param that is com.llfrometa89.uuid4s.UUID
+    * @param that is org.typepure.uuid4s.UUID
     * @return -1, 0 or 1 as this { @code UUID} is less than, equal to, or
     *         greater than { @code val}
     */

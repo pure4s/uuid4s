@@ -7,7 +7,7 @@ Add the following to your `build.sbt`.
 
 ```scala
 // For Scala 2.10, 2.11, or 2.12
-libraryDependencies += "com.typepure" %% "uuid4s" % "0.1.0"
+libraryDependencies += "io.github.typepure" %% "uuid4s" % "0.1.0"
 ```
 
 ## Rationale
@@ -17,14 +17,16 @@ libraryDependencies += "com.typepure" %% "uuid4s" % "0.1.0"
 4. It has [documentation][docs].
 5. [It's modular](#modules).
 
-[docs]: http://typepure.com/uuid4s
+[docs]: https://typepure.github.io/uuid4s/
 [circe]: http://circe.io
+[akka-http]: https://doc.akka.io/docs/akka-http/current/index.html?language=scala
 
 ## Modules
 
-| Module name          | Description                                | Version |
-| -------------------- | ------------------------------------------ | ------- |
-| `uuid4s-circe`      | encode and decode HTTP entities with [Circe][circe] | `0.11.0` |
+| Module name          | Description                                                  | Version  |
+| -------------------- | ------------------------------------------------------------ | -------- |
+| `uuid4s-circe`       | encode and decode HTTP entities with [Circe][circe]          | `0.11.0` |
+| `uuid4s-akka-http`   | run your HTTP requests with akka-http [akka-http][akka-http] | `10.1.7` |
 
 
 ## Usage
@@ -32,7 +34,7 @@ libraryDependencies += "com.typepure" %% "uuid4s" % "0.1.0"
 ```scala
 import cats.effect.IO
 import cats.implicits._
-import com.typepure.uuid4s.{FUUID, UUID}
+import org.typepure.uuid4s.{FUUID, UUID}
 
 object Main extends App {
 

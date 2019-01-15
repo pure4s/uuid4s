@@ -5,7 +5,7 @@ import sbtcrossproject.{crossProject, CrossType}
 inThisBuild(
   List(
     organization := "io.github.typepure",
-    homepage := Some(url("https://github.com/typepure/uuid4s")),
+    homepage := Some(url("https://typepure.github.io/uuid4s/")),
     licenses := List(
       "Apache-2.0" -> url("https://opensource.org/licenses/MIT")),
     developers := List(
@@ -13,7 +13,7 @@ inThisBuild(
         "llfrometa89",
         "Liván Frómeta",
         "llfrometa@gmail.com",
-        url("http://typepure.github.io")
+        url("http://typepure.github.io/")
       )
     )
   ))
@@ -35,7 +35,7 @@ val noPublishSettings = Seq(
 )
 
 val buildSettings = Seq(
-  organization := "com.typepure",
+  organization := "io.github.typepure",
   scalaVersion := "2.12.8",
   licenses := Seq(("MIT", url("http://opensource.org/licenses/MIT"))),
   crossScalaVersions := Seq("2.11.12", scalaVersion.value),
@@ -120,14 +120,12 @@ lazy val docs = project
       file("README.md") -> ExtraMdFileConfig(
         "index.md",
         "home",
-        Map("title" -> "Home", "section" -> "home", "position" -> "0")
+        Map("title" -> "Getting Started", "section" -> "home", "position" -> "0")
       ),
       file("CHANGELOG.md") -> ExtraMdFileConfig(
         "changelog.md",
         "home",
-        Map("title" -> "changelog",
-            "section" -> "changelog",
-            "position" -> "99")
+        Map("title" -> "Change Log", "section" -> "changelog", "position" -> "99")
       )
     ),
     scalacOptions in Tut ~= filterConsoleScalacOptions,
