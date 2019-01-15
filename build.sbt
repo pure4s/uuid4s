@@ -13,7 +13,7 @@ inThisBuild(
         "llfrometa89",
         "Liván Frómeta",
         "llfrometa@gmail.com",
-        url("https://pepegar.com")
+        url("http://typepure.github.io")
       )
     )
   ))
@@ -97,9 +97,6 @@ lazy val circe = crossProject(JSPlatform, JVMPlatform)
 
 lazy val circeJVM = circe.jvm
 
-lazy val javadocIoUrl =
-  settingKey[String]("the url of uuid4s documentation in http://javadoc.io")
-
 lazy val docs = project
   .in(file("docs"))
   .dependsOn(coreJVM, circeJVM)
@@ -112,8 +109,8 @@ lazy val docs = project
     micrositeDescription := "Functional UUID's for Scala",
     micrositeAuthor := "Liván Frómeta",
     micrositeBaseUrl := "uuid4s",
-    javadocIoUrl := s"https://www.javadoc.io/doc/${organization.value}/uuid4s-core_2.12",
-    micrositeDocumentationUrl := javadocIoUrl.value,
+    micrositeUrl := "https://typepure.github.io",
+    micrositeDocumentationUrl := "https://typepure.github.io/uuid4s",
     micrositeGithubOwner := "typepure",
     micrositeGithubRepo := "uuid4s",
     micrositeHighlightTheme := "tomorrow",
