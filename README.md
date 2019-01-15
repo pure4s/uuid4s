@@ -32,14 +32,10 @@ libraryDependencies += "com.typepure" %% "uuid4s" % "0.1.0"
 ```scala
 import cats.effect.IO
 import cats.implicits._
-import com.typepure.uuid4s.implicits._
 import com.typepure.uuid4s.{FUUID, UUID}
 
 object Main extends App {
 
-  //Creating the specific interpret for taggles final (in this case FUUID.sync)
-  implicit val fuuid: FUUID[IO] = FUUID.sync[IO] 
-  
   //Parsing
   val uuid1: UUID = FUUID[IO].fromString("f94e2de4-1c08-4189-9664-105954589e52").unsafeRunSync()
   // res3: UUID = "f94e2de4-1c08-4189-9664-105954589e52"

@@ -4,7 +4,7 @@ import sbtcrossproject.{crossProject, CrossType}
 
 inThisBuild(
   List(
-    organization := "com.typepure",
+    organization := "io.github.typepure",
     homepage := Some(url("https://github.com/typepure/uuid4s")),
     licenses := List(
       "Apache-2.0" -> url("https://opensource.org/licenses/MIT")),

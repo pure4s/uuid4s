@@ -2,14 +2,11 @@ package com.typepure.uuid4s
 
 import cats.effect.IO
 import cats.implicits._
-import com.typepure.uuid4s.implicits._
+import org.scalatest._
 
-class FUUIDSpec extends BaseUnitTest with FUUIDArbitrary {
-
-  implicit val fuuid: FUUID[IO] = FUUID.sync[IO]
+class FUUIDSpec extends FunSpec with Matchers with FUUIDArbitrary {
 
   describe("FUUID[F[_]].fromString") {
-
     it(s"Fail when parsing an invalid string") {
       assertThrows[IllegalArgumentException] {
         FUUID[IO].fromString("invalid uuid").unsafeRunSync()
