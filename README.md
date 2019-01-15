@@ -60,4 +60,7 @@ object Main extends App {
 
 ## Code of conduct
 
-People are expected to follow the ...
+People are expected to follow the [Scala Code of Conduct] when discussing the project on the available communication channels.
+
+
+[Scala Code of Conduct]: https://www.scala-lang.org/conduct/
