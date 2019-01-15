@@ -1,0 +1,11 @@
+name: uuid4s
+baseurl: /uuid4s
+description: Functional UUID's for Scala
+highlighter: rouge
+docs: true
+collections:
+  tut:
+    output: true
+version: 666e3c53+20190115-1512-SNAPSHOT
+org: com.typepure
+markdown: kramdown

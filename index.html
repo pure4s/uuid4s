@@ -1,0 +1,77 @@
+<html><head><title>uuid4s: Home</title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Liván Frómeta" /><meta name="description" content="Functional UUID's for Scala" /><meta name="og:image" content="/uuid4s/img/poster.png" /><meta name="image" property="og:image" content="/uuid4s/img/poster.png" /><meta name="og:title" content="uuid4s: Home" /><meta name="title" property="og:title" content="uuid4s: Home" /><meta name="og:site_name" content="uuid4s" /><meta name="og:url" content="https://github.com/typepure/uuid4s" /><meta name="og:type" content="website" /><meta name="og:description" content="Functional UUID's for Scala" /><link rel="icon" type="image/png" href="/uuid4s/img/favicon.png" /><meta name="twitter:title" content="uuid4s: Home" /><meta name="twitter:image" content="https://typepure.github.io/uuid4s/img/poster.png" /><meta name="twitter:description" content="Functional UUID's for Scala" /><meta name="twitter:card" content="summary_large_image" /><link rel="icon" type="image/png" sizes="16x16" href="/uuid4s/img/favicon16x16.png" /><link rel="icon" type="image/png" sizes="24x24" href="/uuid4s/img/favicon24x24.png" /><link rel="icon" type="image/png" sizes="32x32" href="/uuid4s/img/favicon32x32.png" /><link rel="icon" type="image/png" sizes="48x48" href="/uuid4s/img/favicon48x48.png" /><link rel="icon" type="image/png" sizes="57x57" href="/uuid4s/img/favicon57x57.png" /><link rel="icon" type="image/png" sizes="60x60" href="/uuid4s/img/favicon60x60.png" /><link rel="icon" type="image/png" sizes="64x64" href="/uuid4s/img/favicon64x64.png" /><link rel="icon" type="image/png" sizes="70x70" href="/uuid4s/img/favicon70x70.png" /><link rel="icon" type="image/png" sizes="72x72" href="/uuid4s/img/favicon72x72.png" /><link rel="icon" type="image/png" sizes="76x76" href="/uuid4s/img/favicon76x76.png" /><link rel="icon" type="image/png" sizes="96x96" href="/uuid4s/img/favicon96x96.png" /><link rel="icon" type="image/png" sizes="114x114" href="/uuid4s/img/favicon114x114.png" /><link rel="icon" type="image/png" sizes="120x120" href="/uuid4s/img/favicon120x120.png" /><link rel="icon" type="image/png" sizes="128x128" href="/uuid4s/img/favicon128x128.png" /><link rel="icon" type="image/png" sizes="144x144" href="/uuid4s/img/favicon144x144.png" /><link rel="icon" type="image/png" sizes="150x150" href="/uuid4s/img/favicon150x150.png" /><link rel="icon" type="image/png" sizes="152x152" href="/uuid4s/img/favicon152x152.png" /><link rel="icon" type="image/png" sizes="196x196" href="/uuid4s/img/favicon196x196.png" /><link rel="icon" type="image/png" sizes="310x310" href="/uuid4s/img/favicon310x310.png" /><link rel="icon" type="image/png" sizes="310x150" href="/uuid4s/img/favicon310x150.png" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /><link rel="stylesheet" href="/uuid4s/highlight/styles/tomorrow.css" /><link rel="stylesheet" href="/uuid4s/css/style.css" /><link rel="stylesheet" href="/uuid4s/css/palette.css" /><link rel="stylesheet" href="/uuid4s/css/codemirror.css" /></head><body><header id="site-header"><div class="navbar-wrapper"><div class="container"><div class="row"><div class="col-xs-6"><a href="/uuid4s/" class="brand"><div class="icon-wrapper"><span>uuid4s</span></div></a></div><div class="col-xs-6"><nav class="text-right"><ul class=""><li><a href="https://github.com/typepure/uuid4s"><i class="fa fa-github"></i><span class="hidden-xs">GitHub</span></a></li><li><a href="https://typepure.github.io/uuid4s"><i class="fa fa-file-text"></i><span class="hidden-xs">Documentation</span></a></li></ul></nav></div></div></div></div><div class="jumbotron"><div class="container"><h1 class="text-center">Functional UUID's for Scala</h1><h2></h2><p class="text-center"><a href="https://github.com/typepure/uuid4s" class="btn btn-outline-inverse">View on GitHub</a></p></div></div><div><ul class="horizontalNav">     <li><a class=" active " href="/uuid4s/">Home</a></li>  <li><a class="" href="/uuid4s/integrations.html">Integrations</a></li>  <li><a class="" href="/uuid4s/changelog.html">changelog</a></li> </ul></div></header><main id="site-main"><section class="use"><div class="container"><div id="content"><h1 id="uuid4s">uuid4s</h1>
+
+<p>uuid4s is yet another functional uuid for Scala. It tries to be typeful and purely functional. Java UUID’s aren’t  safe  and are not referentially transparent. The objetive of this library is provide a set of tools for interacting with FUUID’s.</p>
+<h2 id="installation">Installation</h2>
+
+<p>Add the following to your <code class="highlighter-rouge">build.sbt</code>.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// For Scala 2.10, 2.11, or 2.12
+</span><span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.typepure"</span> <span class="o">%%</span> <span class="s">"uuid4s"</span> <span class="o">%</span> <span class="s">"0.1.0"</span>
+</code></pre></div></div>
+
+<h2 id="rationale">Rationale</h2>
+
+<ol>
+  <li>It’s easy to use.</li>
+  <li>It does not force a specific target context. You can run your computations in any type <code class="highlighter-rouge">F[_]</code> that has an instance of cats-effect’s <code class="highlighter-rouge">Sync[F]</code>.</li>
+  <li>It has <a href="http://typepure.com/uuid4s">documentation</a>.</li>
+  <li><a href="#modules">It’s modular</a>.</li>
+</ol>
+
+<h2 id="modules">Modules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Module name</th>
+      <th>Description</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">uuid4s-circe</code></td>
+      <td>encode and decode HTTP entities with <a href="http://circe.io">Circe</a></td>
+      <td><code class="highlighter-rouge">0.11.0</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="usage">Usage</h2>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">cats.effect.IO</span>
+<span class="k">import</span> <span class="nn">cats.implicits._</span>
+<span class="k">import</span> <span class="nn">com.typepure.uuid4s.implicits._</span>
+<span class="k">import</span> <span class="nn">com.typepure.uuid4s.</span><span class="o">{</span><span class="nc">FUUID</span><span class="o">,</span> <span class="nc">UUID</span><span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">Main</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+
+  <span class="c1">//Creating the specific interpret for taggles final (in this case FUUID.sync)
+</span>  <span class="k">implicit</span> <span class="k">val</span> <span class="n">fuuid</span><span class="k">:</span> <span class="kt">FUUID</span><span class="o">[</span><span class="kt">IO</span><span class="o">]</span> <span class="k">=</span> <span class="nc">FUUID</span><span class="o">.</span><span class="n">sync</span><span class="o">[</span><span class="kt">IO</span><span class="o">]</span> 
+  
+  <span class="c1">//Parsing
+</span>  <span class="k">val</span> <span class="n">uuid1</span><span class="k">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="nc">FUUID</span><span class="o">[</span><span class="kt">IO</span><span class="o">].</span><span class="n">fromString</span><span class="o">(</span><span class="s">"f94e2de4-1c08-4189-9664-105954589e52"</span><span class="o">).</span><span class="n">unsafeRunSync</span><span class="o">()</span>
+  <span class="c1">// res3: UUID = "f94e2de4-1c08-4189-9664-105954589e52"
+</span>  
+  <span class="c1">//Generating
+</span>  <span class="k">val</span> <span class="n">uuid2</span><span class="k">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="nc">FUUID</span><span class="o">[</span><span class="kt">IO</span><span class="o">].</span><span class="n">randomFUUID</span><span class="o">.</span><span class="n">unsafeRunSync</span><span class="o">()</span>
+  <span class="c1">// res4: UUID = "dd47b92d-cdbc-43c7-86ab-ffb1060a41ac"
+</span>
+  <span class="c1">//Comparing
+</span>  <span class="k">val</span> <span class="n">result1</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">uuid2</span> <span class="o">&gt;</span> <span class="n">uuid1</span>
+  <span class="k">val</span> <span class="n">result2</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">uuid2</span> <span class="o">&gt;=</span> <span class="n">uuid1</span>
+  <span class="k">val</span> <span class="n">result3</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">uuid1</span> <span class="o">&lt;</span> <span class="n">uuid2</span>
+  <span class="k">val</span> <span class="n">result4</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">uuid1</span> <span class="o">&lt;=</span> <span class="n">uuid2</span>
+  <span class="k">val</span> <span class="n">result5</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">uuid1</span> <span class="o">==</span> <span class="n">uuid2</span>
+  
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="code-of-conduct">Code of conduct</h2>
+
+<p>People are expected to follow the …</p>
+
+</div></div></section><section class="technologies"><div class="container"><div class="row"></div></div></section></main><footer id="site-footer"><div class="container"><div class="row"><div class="col-xs-6"><p>uuid4s is designed and developed by <a href="https://github.com/typepure/uuid4s" target="_blank">Liván Frómeta</a></p></div><div class="col-xs-6"><p class="text-right"><a href="https://github.com/typepure/uuid4s"><span class="fa fa-github"></span>View on GitHub</a></p></div></div><div class="row"><div class="col-xs-6"><p>Website built with <a href="https://47deg.github.io/sbt-microsites/" target="_blank">Sbt-microsites</a> - © 2016 <a href="https://www.47deg.com/" target="_blank">47 Degrees</a></p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/uuid4s/highlight/highlight.pack.js"></script><script>hljs.configure({languages:['scala','java','bash']});
+hljs.initHighlighting();
+              </script><script>((window.gitter = {}).chat = {}).options = {
+room: 'typepure/uuid4s'};</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></body></html>
