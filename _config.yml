@@ -6,6 +6,6 @@ docs: true
 collections:
   tut:
     output: true
-version: 666e3c53+20190115-1512-SNAPSHOT
+version: 98036376+20190115-2035-SNAPSHOT
 org: com.typepure
 markdown: kramdown

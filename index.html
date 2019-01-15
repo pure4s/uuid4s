@@ -41,14 +41,10 @@
 
 <div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">cats.effect.IO</span>
 <span class="k">import</span> <span class="nn">cats.implicits._</span>
-<span class="k">import</span> <span class="nn">com.typepure.uuid4s.implicits._</span>
 <span class="k">import</span> <span class="nn">com.typepure.uuid4s.</span><span class="o">{</span><span class="nc">FUUID</span><span class="o">,</span> <span class="nc">UUID</span><span class="o">}</span>
 
 <span class="k">object</span> <span class="nc">Main</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
 
-  <span class="c1">//Creating the specific interpret for taggles final (in this case FUUID.sync)
-</span>  <span class="k">implicit</span> <span class="k">val</span> <span class="n">fuuid</span><span class="k">:</span> <span class="kt">FUUID</span><span class="o">[</span><span class="kt">IO</span><span class="o">]</span> <span class="k">=</span> <span class="nc">FUUID</span><span class="o">.</span><span class="n">sync</span><span class="o">[</span><span class="kt">IO</span><span class="o">]</span> 
-  
   <span class="c1">//Parsing
 </span>  <span class="k">val</span> <span class="n">uuid1</span><span class="k">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="nc">FUUID</span><span class="o">[</span><span class="kt">IO</span><span class="o">].</span><span class="n">fromString</span><span class="o">(</span><span class="s">"f94e2de4-1c08-4189-9664-105954589e52"</span><span class="o">).</span><span class="n">unsafeRunSync</span><span class="o">()</span>
   <span class="c1">// res3: UUID = "f94e2de4-1c08-4189-9664-105954589e52"
@@ -69,7 +65,7 @@
 
 <h2 id="code-of-conduct">Code of conduct</h2>
 
-<p>People are expected to follow the …</p>
+<p>People are expected to follow the <a href="https://www.scala-lang.org/conduct/">Scala Code of Conduct</a> when discussing the project on the available communication channels.</p>
 
 </div></div></section><section class="technologies"><div class="container"><div class="row"></div></div></section></main><footer id="site-footer"><div class="container"><div class="row"><div class="col-xs-6"><p>uuid4s is designed and developed by <a href="https://github.com/typepure/uuid4s" target="_blank">Liván Frómeta</a></p></div><div class="col-xs-6"><p class="text-right"><a href="https://github.com/typepure/uuid4s"><span class="fa fa-github"></span>View on GitHub</a></p></div></div><div class="row"><div class="col-xs-6"><p>Website built with <a href="https://47deg.github.io/sbt-microsites/" target="_blank">Sbt-microsites</a> - © 2016 <a href="https://www.47deg.com/" target="_blank">47 Degrees</a></p></div></div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/uuid4s/highlight/highlight.pack.js"></script><script>hljs.configure({languages:['scala','java','bash']});
 hljs.initHighlighting();
