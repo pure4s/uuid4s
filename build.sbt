@@ -120,12 +120,16 @@ lazy val docs = project
       file("README.md") -> ExtraMdFileConfig(
         "index.md",
         "home",
-        Map("title" -> "Getting Started", "section" -> "home", "position" -> "0")
+        Map("title" -> "Getting Started",
+            "section" -> "home",
+            "position" -> "0")
       ),
       file("CHANGELOG.md") -> ExtraMdFileConfig(
         "changelog.md",
         "home",
-        Map("title" -> "Change Log", "section" -> "changelog", "position" -> "99")
+        Map("title" -> "Change Log",
+            "section" -> "changelog",
+            "position" -> "99")
       )
     ),
     scalacOptions in Tut ~= filterConsoleScalacOptions,
@@ -147,5 +151,12 @@ lazy val readme = (project in file("tut"))
                                       "-Xlint").contains)
   )
   .enablePlugins(TutPlugin)
+
+lazy val example = project
+  .in(file("example"))
+  .settings(buildSettings)
+  .settings(noPublishSettings)
+  .settings(compilerPlugins)
+  .dependsOn(coreJVM, circeJVM)
 
 addCommandAlias("validateDoc", ";docs/tut;readme/tut")

@@ -1,0 +1,50 @@
+language: scala
+
+scala:
+- 2.12.5
+
+jdk:
+- oraclejdk8
+
+before_install:
+- git fetch --tags
+- export PATH=${PATH}:./vendor/bundle
+
+install:
+- rvm use 2.3.3 --install --fuzzy
+- gem update --system
+- gem install sass
+- gem install jekyll -v 3.8.3
+
+stages:
+  - name: format
+  - name: test
+  - name: release
+    if: (branch = master AND type = push) OR (tag IS present)
+
+
+jobs:
+  include:
+    - stage: format
+      script: sbt scalafmt::test
+    - stage: test
+      script:
+        - sbt ++$TRAVIS_SCALA_VERSION clean coverage +coreJVM/test +circeJVM/test coverageReport
+        - sbt validateDoc validateScalafmt
+        - sbt example/compile
+    - stage: release
+      script: sbt ci-release
+
+
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+- if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then bash
+  scripts/publishMicrosite.sh; fi
+- if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then echo "Not in master branch, skipping
+  deploy and release"; fi
+
+
+env:
+  matrix:
+    secure: AhufOFryuL/OO++VR5GqVy/Jt+exXcDU1mpPtaVHMc7qRR3oWA6LkTIYE5uNr5fBcWXeACzovt50yaN8174FGBp9CQshhNt6v/ju+dw7dXCb5GNzn+8eC18jRofRY5MUowtoj7Lc5dnj3t6NM9GpreSIj/NtSIITtX/w4LIN7b5YOr+1Dthj0VsIgffxh69sRI0+Zmf5PfyLhQSbwzZ/VpIywQt/mmnFKM6F2v2IbfEDb8UTTyolQEoWKsQ/hQ9wDQqp+IZSSteSynROsFzo/lYh/FafjMmyYzfxOSviTdQg1JmX65RZURkuRXNYZ26WKq0CRQ3X/mx4613Rb4YUDsEAcKh3/7/+/u4m1TjfFDu9DRYcVPq4I/B7hu2Ms0GluzoJpM3JIIAH3P2kd3aUts4yCrQh1kLNjkaRgbyUk6AlYdICvtgQMGXGRtW+Lqu3Di7kgdxoNDDx7lVsapVU7BSYmJAVYINkMCSq20Uy3ZTQct+tajciW3OX8R6YxCMFG5SqUb5lCI3eLsjO9Xe8c3aZBHDoPfExDFgzABu62C1A5Zf5oWu9A3S9dn/d3A8t38U/KYiA9YZmCz5ARMwB8r4CkKS8iR14pNkji04oTTA/Xd1a4Y4G55215T5g1drwASc+SzbIljVhNMwrdfMF7JbW5Qyx74klBri5y5Z1hDA=
