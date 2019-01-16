@@ -1,6 +1,7 @@
 # uuid4s
 
 [![Build Status](https://travis-ci.org/typepure/uuid4s.svg?branch=master)](https://travis-ci.org/typepure/uuid4s)
+[![codecov](https://codecov.io/gh/typepure/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/typepure/uuid4s)
 [![Join the chat at https://gitter.im/typepure-uuid4s/community](https://badges.gitter.im/typepure-uuid4s/community.svg)](https://gitter.im/typepure-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![HitCount](http://hits.dwyl.io/typepure/uuid4s.svg)](http://hits.dwyl.io/typepure/uuid4s)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
