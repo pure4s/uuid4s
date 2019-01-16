@@ -160,3 +160,6 @@ lazy val example = project
   .dependsOn(coreJVM, circeJVM)
 
 addCommandAlias("validateDoc", ";docs/tut;readme/tut")
+addCommandAlias(
+  "validateScalafmt",
+  ";sbt:scalafmt::test;test:scalafmt::test;compile:scalafmt::test")
