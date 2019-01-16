@@ -6,6 +6,6 @@ docs: true
 collections:
   tut:
     output: true
-version: a4a552c1+20190115-2200-SNAPSHOT
+version: 3ee23a93+20190116-2202-SNAPSHOT
 org: io.github.typepure
 markdown: kramdown
