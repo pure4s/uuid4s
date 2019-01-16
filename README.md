@@ -31,29 +31,97 @@ libraryDependencies += "io.github.typepure" %% "uuid4s" % "0.1.0"
 
 ## Usage
 
+Example 1:
 ```scala
 import cats.effect.IO
 import cats.implicits._
 import org.typepure.uuid4s.{FUUID, UUID}
 
-object Main extends App {
+object BasicExampleMain extends App {
 
   //Parsing
-  val uuid1: UUID = FUUID[IO].fromString("f94e2de4-1c08-4189-9664-105954589e52").unsafeRunSync()
-  // res3: UUID = "f94e2de4-1c08-4189-9664-105954589e52"
-  
+  val uuid1: UUID = FUUID[IO].fromString("7cfb70a9-0764-4851-a28c-309393aea2eb").unsafeRunSync()
+  val uuid2: UUID = FUUID[IO].fromString("e7f86fa0-ff91-47ba-baff-0954957af20f").unsafeRunSync()
+
   //Generating
-  val uuid2: UUID = FUUID[IO].randomFUUID.unsafeRunSync()
-  // res4: UUID = "dd47b92d-cdbc-43c7-86ab-ffb1060a41ac"
+  val uuid3: UUID = FUUID[IO].randomFUUID.unsafeRunSync()
 
   //Comparing
-  val result1: Boolean = uuid2 > uuid1
-  val result2: Boolean = uuid2 >= uuid1
-  val result3: Boolean = uuid1 < uuid2
-  val result4: Boolean = uuid1 <= uuid2
+  val result1: Boolean = uuid2 < uuid1
+  val result2: Boolean = uuid2 <= uuid1
+  val result3: Boolean = uuid1 > uuid2
+  val result4: Boolean = uuid1 >= uuid2
   val result5: Boolean = uuid1 == uuid2
-  
+
 }
+```
+
+Example 2:
+```scala
+import cats.effect.{IO, Sync}
+import cats.implicits._
+import org.typepure.uuid4s.{FUUID, UUID}
+import cats.Id
+
+case class ProfileResponse(userId: String,
+                           email: String,
+                           companyId: String,
+                           companyName: String,
+                           photo: String)
+
+case class Company(id: Id[UUID], name: String)
+
+case class User(id: Id[UUID], email: String)
+
+case class Profile(user: User, company: Company, photo: String)
+
+class ProfileConverter {
+  def fromF[F[_]: Sync: FUUID](profileResponse: ProfileResponse): F[Profile] = {
+    for {
+      userId <- FUUID[F].fromString(profileResponse.userId)
+      companyId <- FUUID[F].fromString(profileResponse.companyId)
+    } yield
+      Profile(User(userId, profileResponse.email),
+              Company(companyId, profileResponse.companyName),
+              profileResponse.photo)
+  }
+}
+
+trait ProfileRepository[F[_]] {
+  def findByEmail(email: String): F[Option[Profile]]
+}
+
+class ProfileRestRepository[F[_]: Sync](converter: ProfileConverter)
+    extends ProfileRepository[F] {
+  override def findByEmail(email: String): F[Option[Profile]] = {
+
+    /**
+      * This method simulates the call external API Rest. Use Sync[F].delay when perform request to API Rest real
+      */
+    def performRequest: F[Option[ProfileResponse]] =
+      Option(
+        ProfileResponse("7cfb70a9-0764-4851-a28c-309393aea2eb",
+                        "example@example.com",
+                        "e7f86fa0-ff91-47ba-baff-0954957af20f",
+                        "Typepure",
+                        "http://example.com/example.jpg")).pure[F]
+
+    for {
+      maybeProfileResponse <- performRequest
+      maybeProfile <- maybeProfileResponse.traverse(converter.fromF[F])
+    } yield maybeProfile
+  }
+}
+
+object ComplexExampleMain extends App {
+  val converter = new ProfileConverter
+  val repository: ProfileRepository[IO] =
+    new ProfileRestRepository[IO](converter)
+  val maybeProfile =
+    repository.findByEmail("example@example.com").unsafeRunSync()
+  println(s"-> maybeProfile = $maybeProfile")
+}
+
 ```
 
 ## Code of conduct
