@@ -76,7 +76,7 @@ case class User(id: Id[UUID], email: String)
 case class Profile(user: User, company: Company, photo: String)
 
 class ProfileConverter {
-  def fromF[F[_]: Sync: FUUID](profileResponse: ProfileResponse): F[Profile] = {
+  def fromF[F[_]: Sync](profileResponse: ProfileResponse): F[Profile] = {
     for {
       userId <- FUUID[F].fromString(profileResponse.userId)
       companyId <- FUUID[F].fromString(profileResponse.companyId)
@@ -121,7 +121,6 @@ object ComplexExampleMain extends App {
     repository.findByEmail("example@example.com").unsafeRunSync()
   println(s"-> maybeProfile = $maybeProfile")
 }
-
 ```
 
 ## Code of conduct
