@@ -11,7 +11,7 @@ object BasicExampleMain extends App {
     FUUID[IO].fromString("e7f86fa0-ff91-47ba-baff-0954957af20f").unsafeRunSync()
 
   //Generating
-  val uuid3: UUID = FUUID[IO].randomFUUID.unsafeRunSync()
+  val uuid3: UUID = FUUID[IO].randomUUID.unsafeRunSync()
 
   //Comparing
   val result1: Boolean = uuid2 < uuid1

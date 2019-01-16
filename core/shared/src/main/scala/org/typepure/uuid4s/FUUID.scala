@@ -33,7 +33,7 @@ object UUID {
 trait FUUID[F[_]] {
   def fromString(value: String): F[UUID]
   def fromUUID(uuid: JUUID): F[UUID]
-  def randomFUUID: F[UUID]
+  def randomUUID: F[UUID]
 }
 
 object FUUID {
@@ -41,6 +41,6 @@ object FUUID {
   implicit def sync[F[_]: Sync]: FUUID[F] = new FUUID[F] {
     override def fromString(value: String): F[UUID] = Sync[F].delay(new UUID(JUUID.fromString(value)))
     override def fromUUID(uuid: JUUID): F[UUID] = Sync[F].delay(new UUID(uuid))
-    override def randomFUUID: F[UUID] = Sync[F].delay(new UUID(JUUID.randomUUID))
+    override def randomUUID: F[UUID] = Sync[F].delay(new UUID(JUUID.randomUUID))
   }
 }
