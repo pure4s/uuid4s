@@ -1,5 +1,6 @@
 # uuid4s
 
+[![Build Status](https://travis-ci.org/typepure/uuid4s.svg?branch=master)](https://travis-ci.org/typepure/uuid4s)
 [![Join the chat at https://gitter.im/typepure-uuid4s/community](https://badges.gitter.im/typepure-uuid4s/community.svg)](https://gitter.im/typepure-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 uuid4s is yet another functional uuid for Scala. It tries to be typeful and purely functional. Java UUID’s aren’t  safe  and are not referentially transparent. The objetive of this library is provide a set of tools for interacting with FUUID’s.
