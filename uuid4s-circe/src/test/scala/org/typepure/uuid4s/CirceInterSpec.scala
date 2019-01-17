@@ -14,17 +14,19 @@ class CirceInterSpec extends FunSpec with Matchers {
   val inValidUUIDAsString = "12396882-202e-4d75-a316-17d848a0112y"
 
   describe("Circe serialization") {
-    it(s"Success serialize") {
+    it("Successfully completes serialization") {
       val circeUUID: UUID = FUUID[IO].fromString(validUUIDAsString).unsafeRunSync()
       val circeFUUIDJson: Json = circeUUID.asJson
+
       circeFUUIDJson shouldBe validUUIDAsString.asJson
     }
   }
   describe("Circe deserialization") {
-    it(s"Success deserialize") {
+    it("Successfully completes deserialization") {
       val circeUUID: UUID = FUUID[IO].fromString(validUUIDAsString).unsafeRunSync()
       val circeFUUIDJson: Json = circeUUID.asJson
       val decode: Decoder.Result[UUID] = circeFUUIDJson.as[UUID]
+
       decode.right.value.toString shouldBe validUUIDAsString
     }
   }

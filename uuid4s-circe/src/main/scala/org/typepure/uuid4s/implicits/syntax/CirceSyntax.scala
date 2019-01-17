@@ -4,11 +4,10 @@ import cats.effect.{IO, LiftIO}
 import io.circe.syntax._
 import io.circe.{Decoder, Encoder}
 import org.typepure.uuid4s.{FUUID, UUID}
+import org.typepure.uuid4s.implicits.liftIO._
 
-trait CirceSyntax extends LiftIOSyntax {
-
+trait CirceSyntax {
   implicit val uuidEncoder: Encoder[UUID] = Encoder.instance(_.toString.asJson)
-
   implicit val uuidDecoder: Decoder[UUID] = {
 
     def interpretIO(value: String): Either[String, UUID] = {
