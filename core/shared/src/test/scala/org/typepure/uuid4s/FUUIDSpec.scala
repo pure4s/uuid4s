@@ -14,7 +14,7 @@ class FUUIDSpec extends FunSpec with Matchers with FUUIDArbitrary {
     }
     it(s"Fail when parsing invalid uuid") {
       assertThrows[IllegalArgumentException] {
-        FUUID[IO].fromString("12396882-202e-4d75-a316-17d848a0112y").unsafeRunSync()
+        FUUID[IO].fromString(inValidUUIDAsString).unsafeRunSync()
       }
     }
     it(s"Succeed when parsing a valid UUID") {
@@ -28,10 +28,17 @@ class FUUIDSpec extends FunSpec with Matchers with FUUIDArbitrary {
       result.toString() shouldBe validUUIDAsString
     }
   }
-  describe("FUUID[F[_]].randomFUUID") {
+  describe("FUUID[F[_]].randomUUID") {
     it(s"Succeed when generating random valid UUID") {
-      val uuidResult = FUUID[IO].randomFUUID.unsafeRunSync()
+      val uuidResult = FUUID[IO].random.unsafeRunSync()
       uuidResult shouldBe a[UUID]
+    }
+  }
+  describe("FUUID[F[_]].toString") {
+    it(s"Succeed when convert UUID to String") {
+      val uuidResult: UUID = FUUID[IO].fromString(validUUIDAsString).unsafeRunSync()
+      val uuidAsString: String = FUUID[IO].toString(uuidResult).unsafeRunSync()
+      uuidAsString shouldBe validUUIDAsString
     }
   }
   describe("comparing UUID") {
