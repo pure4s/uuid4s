@@ -25,6 +25,7 @@ lazy val V = new {
   val macroParadiseVersion = "2.1.1"
   val kindProjectorVersion = "0.9.9"
   val circeVersion = "0.11.0"
+  val fastUUIDVersion = "0.1"
 }
 
 val noPublishSettings = Seq(
@@ -65,8 +66,8 @@ lazy val uuid4s = project
   .in(file("."))
   .settings(buildSettings)
   .settings(noPublishSettings)
-  .dependsOn(coreJVM, circeJVM)
-  .aggregate(coreJVM, circeJVM)
+  .dependsOn(coreJVM, circeJVM, fastJVM)
+  .aggregate(coreJVM, circeJVM, fastJVM)
 
 lazy val core = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Full)
@@ -96,6 +97,20 @@ lazy val circe = crossProject(JSPlatform, JVMPlatform)
   .dependsOn(core)
 
 lazy val circeJVM = circe.jvm
+
+lazy val fast = crossProject(JSPlatform, JVMPlatform)
+  .crossType(CrossType.Pure)
+  .in(file("uuid4s-fast"))
+  .settings(moduleName := "uuid4s-fast")
+  .settings(buildSettings)
+  .settings(commonDependencies)
+  .settings(compilerPlugins)
+  .settings(libraryDependencies ++= Seq(
+    "com.eatthepath" % "fast-uuid" % V.fastUUIDVersion
+  ))
+  .dependsOn(core)
+
+lazy val fastJVM = fast.jvm
 
 lazy val docs = project
   .in(file("docs"))
