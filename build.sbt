@@ -151,20 +151,6 @@ lazy val docs = project
     scalacOptions in Tut += "-language:postfixOps"
   )
   .enablePlugins(MicrositesPlugin)
-
-lazy val readme = (project in file("tut"))
-  .settings(moduleName := "uuid4s-readme")
-  .dependsOn(coreJVM, circeJVM)
-  .settings(buildSettings)
-  .settings(noPublishSettings)
-  .settings(
-    tutSourceDirectory := baseDirectory.value,
-    tutTargetDirectory := baseDirectory.value.getParentFile,
-    tutNameFilter := """README.md""".r,
-    scalacOptions ~= (_ filterNot Set("-Xfatal-warnings",
-                                      "-Ywarn-unused-import",
-                                      "-Xlint").contains)
-  )
   .enablePlugins(TutPlugin)
 
 lazy val example = project
@@ -174,7 +160,7 @@ lazy val example = project
   .settings(compilerPlugins)
   .dependsOn(coreJVM, circeJVM)
 
-addCommandAlias("validateDoc", ";docs/tut;readme/tut")
+addCommandAlias("validateDoc", ";docs/tut")
 addCommandAlias(
   "validateScalafmt",
   ";sbt:scalafmt::test;test:scalafmt::test;compile:scalafmt::test")
