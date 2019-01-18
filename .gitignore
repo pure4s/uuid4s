@@ -31,3 +31,4 @@ project/plugins/project/
 .worksheet
 .ensime
 .idea
+.DS_Store
