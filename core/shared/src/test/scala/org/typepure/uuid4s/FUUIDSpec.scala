@@ -30,8 +30,15 @@ class FUUIDSpec extends FunSpec with Matchers with FUUIDArbitrary {
   }
   describe("FUUID[F[_]].randomUUID") {
     it(s"Succeed when generating random valid UUID") {
-      val uuidResult = FUUID[IO].randomUUID.unsafeRunSync()
+      val uuidResult = FUUID[IO].random.unsafeRunSync()
       uuidResult shouldBe a[UUID]
+    }
+  }
+  describe("FUUID[F[_]].toString") {
+    it(s"Succeed when convert UUID to String") {
+      val uuidResult: UUID = FUUID[IO].fromString(validUUIDAsString).unsafeRunSync()
+      val uuidAsString: String = FUUID[IO].toString(uuidResult).unsafeRunSync()
+      uuidAsString shouldBe validUUIDAsString
     }
   }
   describe("comparing UUID") {
