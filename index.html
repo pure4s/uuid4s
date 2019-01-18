@@ -30,14 +30,29 @@
   </thead>
   <tbody>
     <tr>
+      <td><code class="highlighter-rouge">uuid4s</code></td>
+      <td>The core functionality of uuid4s</td>
+      <td><code class="highlighter-rouge">0.1.0</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">uuid4s-fast</code></td>
+      <td>Use functional fast uuid  <a href="https://github.com/jchambers/fast-uuid">fast-uuid</a></td>
+      <td><code class="highlighter-rouge">0.1.0</code></td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">uuid4s-circe</code></td>
-      <td>encode and decode HTTP entities with <a href="http://circe.io">Circe</a></td>
-      <td><code class="highlighter-rouge">0.11.0</code></td>
+      <td>Encode and decode HTTP entities with <a href="http://circe.io">Circe</a></td>
+      <td><code class="highlighter-rouge">0.1.0</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">uuid4s-http4s</code></td>
+      <td>Run your HTTP requests with http4s <a href="https://http4s.org/">http4s</a></td>
+      <td><code class="highlighter-rouge">0.1.0</code></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">uuid4s-akka-http</code></td>
-      <td>run your HTTP requests with akka-http <a href="https://doc.akka.io/docs/akka-http/current/index.html?language=scala">akka-http</a></td>
-      <td><code class="highlighter-rouge">10.1.7</code></td>
+      <td>Run your HTTP requests with akka-http <a href="https://doc.akka.io/docs/akka-http/current/index.html?language=scala">akka-http</a></td>
+      <td><code class="highlighter-rouge">0.1.0</code></td>
     </tr>
   </tbody>
 </table>
@@ -65,72 +80,6 @@
   <span class="k">val</span> <span class="n">result4</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">uuid1</span> <span class="o">&gt;=</span> <span class="n">uuid2</span>
   <span class="k">val</span> <span class="n">result5</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="n">uuid1</span> <span class="o">==</span> <span class="n">uuid2</span>
 
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Example 2:</p>
-<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">cats.effect.</span><span class="o">{</span><span class="nc">IO</span><span class="o">,</span> <span class="nc">Sync</span><span class="o">}</span>
-<span class="k">import</span> <span class="nn">cats.implicits._</span>
-<span class="k">import</span> <span class="nn">org.typepure.uuid4s.</span><span class="o">{</span><span class="nc">FUUID</span><span class="o">,</span> <span class="nc">UUID</span><span class="o">}</span>
-<span class="k">import</span> <span class="nn">cats.Id</span>
-
-<span class="k">case</span> <span class="k">class</span> <span class="nc">ProfileResponse</span><span class="o">(</span><span class="n">userId</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
-                           <span class="n">email</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
-                           <span class="n">companyId</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
-                           <span class="n">companyName</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
-                           <span class="n">photo</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
-
-<span class="k">case</span> <span class="k">class</span> <span class="nc">Company</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Id</span><span class="o">[</span><span class="kt">UUID</span><span class="o">],</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
-
-<span class="k">case</span> <span class="k">class</span> <span class="nc">User</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Id</span><span class="o">[</span><span class="kt">UUID</span><span class="o">],</span> <span class="n">email</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
-
-<span class="k">case</span> <span class="k">class</span> <span class="nc">Profile</span><span class="o">(</span><span class="n">user</span><span class="k">:</span> <span class="kt">User</span><span class="o">,</span> <span class="n">company</span><span class="k">:</span> <span class="kt">Company</span><span class="o">,</span> <span class="n">photo</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
-
-<span class="k">class</span> <span class="nc">ProfileConverter</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">fromF</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span><span class="kt">:</span> <span class="kt">Sync</span><span class="o">](</span><span class="n">profileResponse</span><span class="k">:</span> <span class="kt">ProfileResponse</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">Profile</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
-    <span class="k">for</span> <span class="o">{</span>
-      <span class="n">userId</span> <span class="k">&lt;-</span> <span class="nc">FUUID</span><span class="o">[</span><span class="kt">F</span><span class="o">].</span><span class="n">fromString</span><span class="o">(</span><span class="n">profileResponse</span><span class="o">.</span><span class="n">userId</span><span class="o">)</span>
-      <span class="n">companyId</span> <span class="k">&lt;-</span> <span class="nc">FUUID</span><span class="o">[</span><span class="kt">F</span><span class="o">].</span><span class="n">fromString</span><span class="o">(</span><span class="n">profileResponse</span><span class="o">.</span><span class="n">companyId</span><span class="o">)</span>
-    <span class="o">}</span> <span class="k">yield</span>
-      <span class="nc">Profile</span><span class="o">(</span><span class="nc">User</span><span class="o">(</span><span class="n">userId</span><span class="o">,</span> <span class="n">profileResponse</span><span class="o">.</span><span class="n">email</span><span class="o">),</span>
-              <span class="nc">Company</span><span class="o">(</span><span class="n">companyId</span><span class="o">,</span> <span class="n">profileResponse</span><span class="o">.</span><span class="n">companyName</span><span class="o">),</span>
-              <span class="n">profileResponse</span><span class="o">.</span><span class="n">photo</span><span class="o">)</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="k">trait</span> <span class="nc">ProfileRepository</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
-  <span class="k">def</span> <span class="n">findByEmail</span><span class="o">(</span><span class="n">email</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">Option</span><span class="o">[</span><span class="kt">Profile</span><span class="o">]]</span>
-<span class="o">}</span>
-
-<span class="k">class</span> <span class="nc">ProfileRestRepository</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span><span class="kt">:</span> <span class="kt">Sync</span><span class="o">](</span><span class="n">converter</span><span class="k">:</span> <span class="kt">ProfileConverter</span><span class="o">)</span>
-    <span class="k">extends</span> <span class="nc">ProfileRepository</span><span class="o">[</span><span class="kt">F</span><span class="o">]</span> <span class="o">{</span>
-  <span class="k">override</span> <span class="k">def</span> <span class="n">findByEmail</span><span class="o">(</span><span class="n">email</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">Option</span><span class="o">[</span><span class="kt">Profile</span><span class="o">]]</span> <span class="k">=</span> <span class="o">{</span>
-
-    <span class="cm">/**
-      * This method simulates the call external API Rest. Use Sync[F].delay when perform request to API Rest real
-      */</span>
-    <span class="k">def</span> <span class="n">performRequest</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">Option</span><span class="o">[</span><span class="kt">ProfileResponse</span><span class="o">]]</span> <span class="k">=</span>
-      <span class="nc">Option</span><span class="o">(</span>
-        <span class="nc">ProfileResponse</span><span class="o">(</span><span class="s">"7cfb70a9-0764-4851-a28c-309393aea2eb"</span><span class="o">,</span>
-                        <span class="s">"example@example.com"</span><span class="o">,</span>
-                        <span class="s">"e7f86fa0-ff91-47ba-baff-0954957af20f"</span><span class="o">,</span>
-                        <span class="s">"Typepure"</span><span class="o">,</span>
-                        <span class="s">"http://example.com/example.jpg"</span><span class="o">)).</span><span class="n">pure</span><span class="o">[</span><span class="kt">F</span><span class="o">]</span>
-
-    <span class="k">for</span> <span class="o">{</span>
-      <span class="n">maybeProfileResponse</span> <span class="k">&lt;-</span> <span class="n">performRequest</span>
-      <span class="n">maybeProfile</span> <span class="k">&lt;-</span> <span class="n">maybeProfileResponse</span><span class="o">.</span><span class="n">traverse</span><span class="o">(</span><span class="n">converter</span><span class="o">.</span><span class="n">fromF</span><span class="o">[</span><span class="kt">F</span><span class="o">])</span>
-    <span class="o">}</span> <span class="k">yield</span> <span class="n">maybeProfile</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="k">object</span> <span class="nc">ComplexExampleMain</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
-  <span class="k">val</span> <span class="n">converter</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ProfileConverter</span>
-  <span class="k">val</span> <span class="n">repository</span><span class="k">:</span> <span class="kt">ProfileRepository</span><span class="o">[</span><span class="kt">IO</span><span class="o">]</span> <span class="k">=</span>
-    <span class="k">new</span> <span class="nc">ProfileRestRepository</span><span class="o">[</span><span class="kt">IO</span><span class="o">](</span><span class="n">converter</span><span class="o">)</span>
-  <span class="k">val</span> <span class="n">maybeProfile</span> <span class="k">=</span>
-    <span class="n">repository</span><span class="o">.</span><span class="n">findByEmail</span><span class="o">(</span><span class="s">"example@example.com"</span><span class="o">).</span><span class="n">unsafeRunSync</span><span class="o">()</span>
-  <span class="n">println</span><span class="o">(</span><span class="n">s</span><span class="s">"-&gt; maybeProfile = $maybeProfile"</span><span class="o">)</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
