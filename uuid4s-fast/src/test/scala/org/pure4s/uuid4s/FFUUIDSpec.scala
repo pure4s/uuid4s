@@ -1,5 +1,7 @@
 package org.pure4s.uuid4s
 
+import java.util.UUID
+
 import cats.effect.IO
 import org.scalatest._
 
@@ -24,7 +26,7 @@ class FFUUIDSpec extends FunSpec with Matchers with FFUUIDArbitrary {
   describe("FFUUID[F[_]].fromUUID") {
     it(s"Succeed when parsing a valid UUID") {
       val result = FFUUID[IO].fromUUID(validJUUID).unsafeRunSync()
-      result.toString() shouldBe validUUIDAsString
+      result.toString shouldBe validUUIDAsString
     }
   }
   describe("FFUUID[F[_]].randomUUID") {

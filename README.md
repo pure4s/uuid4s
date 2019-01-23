@@ -2,9 +2,9 @@
 
 [comment]: # (Start Badges)
 
-[![Build Status](https://travis-ci.org/typepure/uuid4s.svg?branch=master)](https://travis-ci.org/typepure/uuid4s)
+[![Build Status](https://travis-ci.org/pure4s/uuid4s.svg?branch=master)](https://travis-ci.org/uuid4s/uuid4s)
 [![Maven Central](https://img.shields.io/badge/maven%20central-0.1.0-green.svg)](https://oss.sonatype.org/#nexus-search;gav~io.github.typepure~uuid4s*)
-[![codecov.io](https://codecov.io/gh/typepure/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/typepure/uuid4s)
+[![codecov.io](https://codecov.io/gh/pure4s/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/pure4s/uuid4s)
 [![Join the chat at https://gitter.im/typepure-uuid4s/community](https://badges.gitter.im/typepure-uuid4s/community.svg)](https://gitter.im/typepure-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![GitHub Issues](https://img.shields.io/github/issues/typepure/uuid4s.svg)](https://github.com/typepure/uuid4s/issues)
 [![GitHub PR](https://img.shields.io/github/issues-pr/typepure/uuid4s.svg)](https://github.com/typepure/uuid4s/pulls)
@@ -41,7 +41,7 @@ libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.0"
 | Module name          | Description                                                  | Version |
 | -------------------- | ------------------------------------------------------------ | ------- |
 | `uuid4s`             | The core functionality of uuid4s                             | `0.1.0` |
-| `uuid4s-fast`        | Use functional fast uuid  [fast-uuid][fast-uuid]             | `0.1.0` |
+| `uuid4s-fast`        | Use fast uuid  [fast-uuid][fast-uuid]             | `0.1.0` |
 | `uuid4s-circe`       | Encode and decode HTTP entities with [Circe][circe]          | `0.1.0` |
 | `uuid4s-http4s`      | Run your HTTP requests with http4s [http4s][http4s]          | `0.1.0` |
 | `uuid4s-akka-http`   | Run your HTTP requests with akka-http [akka-http][akka-http] | `0.1.0` |
@@ -51,26 +51,27 @@ libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.0"
 
 Example 1:
 ```scala
+import java.util.UUID
 import cats.effect.IO
 import cats.implicits._
-import org.pure4s.uuid4s.{FUUID, UUID}
+import org.pure4s.uuid4s.FUUID
+import org.pure4s.uuid4s.implicits._
 
 object BasicExampleMain extends App {
 
   //Parsing
-  val uuid1: UUID = FUUID[IO].fromString("7cfb70a9-0764-4851-a28c-309393aea2eb").unsafeRunSync()
-  val uuid2: UUID = FUUID[IO].fromString("e7f86fa0-ff91-47ba-baff-0954957af20f").unsafeRunSync()
+  val uuid1: UUID =
+    FUUID[IO].fromString("7cfb70a9-0764-4851-a28c-309393aea2eb").unsafeRunSync()
 
   //Generating
-  val uuid3: UUID = FUUID[IO].randomFUUID.unsafeRunSync()
+  val uuid2: UUID = FUUID[IO].random.unsafeRunSync()
 
   //Comparing
   val result1: Boolean = uuid2 < uuid1
   val result2: Boolean = uuid2 <= uuid1
   val result3: Boolean = uuid1 > uuid2
   val result4: Boolean = uuid1 >= uuid2
-  val result5: Boolean = uuid1 == uuid2
-
+  val result5: Boolean = uuid1 === uuid1
 }
 ```
 

@@ -1,10 +1,12 @@
 package org.pure4s.uuid4s
 
+import java.util.UUID
+
 import cats.effect.IO
 import io.circe.Decoder
 import io.circe.Json
 import org.scalatest._
-import org.pure4s.uuid4s.implicits.circe._
+import org.pure4s.uuid4s.circe._
 import io.circe.syntax._
 import org.scalatest.EitherValues._
 
