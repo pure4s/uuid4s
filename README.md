@@ -1,13 +1,17 @@
 # uuid4s
 
-[![Build Status](https://travis-ci.org/typepure/uuid4s.svg?branch=master)](https://travis-ci.org/typepure/uuid4s)
-[![codecov](https://codecov.io/gh/typepure/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/typepure/uuid4s)
-[![Join the chat at https://gitter.im/typepure-uuid4s/community](https://badges.gitter.im/typepure-uuid4s/community.svg)](https://gitter.im/typepure-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![HitCount](http://hits.dwyl.io/typepure/uuid4s.svg)](http://hits.dwyl.io/typepure/uuid4s)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/github/issues-pr/typepure/uuid4s.svg)
-![](https://img.shields.io/github/issues-raw/typepure/uuid4s.svg)
+[comment]: # (Start Badges)
 
+[![Build Status](https://travis-ci.org/typepure/uuid4s.svg?branch=master)](https://travis-ci.org/typepure/uuid4s)
+[![Maven Central](https://img.shields.io/badge/maven%20central-0.1.0-green.svg)](https://oss.sonatype.org/#nexus-search;gav~io.github.typepure~uuid4s*)
+[![codecov.io](https://codecov.io/gh/typepure/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/typepure/uuid4s)
+[![Join the chat at https://gitter.im/typepure-uuid4s/community](https://badges.gitter.im/typepure-uuid4s/community.svg)](https://gitter.im/typepure-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![GitHub Issues](https://img.shields.io/github/issues/typepure/uuid4s.svg)](https://github.com/typepure/uuid4s/issues)
+[![GitHub PR](https://img.shields.io/github/issues-pr/typepure/uuid4s.svg)](https://github.com/typepure/uuid4s/pulls)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HitCount](http://hits.dwyl.io/typepure/uuid4s.svg?style=flat)](http://hits.dwyl.io/typepure/uuid4s)
+ 
+[comment]: # (End Badges)
 
 uuid4s is yet another functional uuid for Scala. It tries to be typeful and purely functional. Java UUID’s aren’t  safe  and are not referentially transparent. The objetive of this library is provide a set of tools for interacting with FUUID’s.
 ## Installation
@@ -72,7 +76,12 @@ object BasicExampleMain extends App {
 
 ## Code of conduct
 
-People are expected to follow the [Scala Code of Conduct] when discussing the project on the available communication channels.
+People are expected to follow the [conduct-code] when discussing the project on the available communication channels.
 
 
-[Scala Code of Conduct]: https://www.scala-lang.org/conduct/
+[docs]: https://typepure.github.io/uuid4s/
+[circe]: http://circe.io
+[fast-uuid]: https://github.com/jchambers/fast-uuid
+[http4s]: https://http4s.org/
+[akka-http]: https://doc.akka.io/docs/akka-http/current/index.html?language=scala
+[conduct-code]: https://www.scala-lang.org/conduct/
