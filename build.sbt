@@ -4,8 +4,8 @@ import sbtcrossproject.{crossProject, CrossType}
 
 inThisBuild(
   List(
-    organization := "io.github.typepure",
-    homepage := Some(url("https://typepure.github.io/uuid4s/")),
+    organization := "org.pure4s",
+    homepage := Some(url("http://pure4s.org/uuid4s/")),
     licenses := List(
       "Apache-2.0" -> url("https://opensource.org/licenses/MIT")),
     developers := List(
@@ -13,7 +13,7 @@ inThisBuild(
         "llfrometa89",
         "Liván Frómeta",
         "llfrometa@gmail.com",
-        url("http://typepure.github.io/")
+        url("http://pure4s.org/uuid4s/")
       )
     )
   ))
@@ -36,7 +36,7 @@ val noPublishSettings = Seq(
 )
 
 val buildSettings = Seq(
-  organization := "io.github.typepure",
+  organization := "org.pure4s",
   scalaVersion := "2.12.8",
   licenses := Seq(("MIT", url("http://opensource.org/licenses/MIT"))),
   crossScalaVersions := Seq("2.11.12", scalaVersion.value),
@@ -72,7 +72,7 @@ lazy val uuid4s = project
 lazy val core = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Full)
   .in(file("core"))
-  .settings(moduleName := "uuid4s-core")
+  .settings(moduleName := "uuid4s")
   .settings(buildSettings)
   .settings(commonDependencies)
   .settings(compilerPlugins)
@@ -124,9 +124,9 @@ lazy val docs = project
     micrositeDescription := "Functional UUID's for Scala",
     micrositeAuthor := "Liván Frómeta",
     micrositeBaseUrl := "uuid4s",
-    micrositeUrl := "https://typepure.github.io",
-    micrositeDocumentationUrl := "https://typepure.github.io/uuid4s",
-    micrositeGithubOwner := "typepure",
+    micrositeUrl := "http://pure4s.org",
+    micrositeDocumentationUrl := "http://pure4s/uuid4s",
+    micrositeGithubOwner := "pure4s",
     micrositeGithubRepo := "uuid4s",
     micrositeHighlightTheme := "tomorrow",
     micrositePushSiteWith := GitHub4s,

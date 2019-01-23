@@ -1,4 +1,4 @@
-package org.typepure.uuid4s
+package org.pure4s.uuid4s
 
 import cats.effect.IO
 import cats.implicits._

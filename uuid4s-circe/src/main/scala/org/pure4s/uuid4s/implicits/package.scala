@@ -1,6 +1,6 @@
-package org.typepure.uuid4s
+package org.pure4s.uuid4s
 
-import org.typepure.uuid4s.implicits.syntax.{CirceSyntax, LiftIOSyntax}
+import org.pure4s.uuid4s.implicits.syntax.{CirceSyntax, LiftIOSyntax}
 
 package object implicits {
   object circe extends CirceSyntax

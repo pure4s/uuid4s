@@ -20,7 +20,7 @@ Add the following to your `build.sbt`.
 
 ```scala
 // For Scala 2.10, 2.11, or 2.12
-libraryDependencies += "io.github.typepure" %% "uuid4s" % "0.1.0"
+libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.0"
 ```
 
 ## Rationale
@@ -29,6 +29,12 @@ libraryDependencies += "io.github.typepure" %% "uuid4s" % "0.1.0"
 3. It does not force a specific target context. You can run your computations in any type `F[_]` that has an instance of cats-effect's `Sync[F]`.
 4. It has [documentation][docs].
 5. [It's modular](#modules).
+
+[docs]: http://pure4s.org/uuid4s/
+[circe]: http://circe.io
+[fast-uuid]: https://github.com/jchambers/fast-uuid
+[http4s]: https://http4s.org/
+[akka-http]: https://doc.akka.io/docs/akka-http/current/index.html?language=scala
 
 ## Modules
 
@@ -47,7 +53,7 @@ Example 1:
 ```scala
 import cats.effect.IO
 import cats.implicits._
-import org.typepure.uuid4s.{FUUID, UUID}
+import org.pure4s.uuid4s.{FUUID, UUID}
 
 object BasicExampleMain extends App {
 

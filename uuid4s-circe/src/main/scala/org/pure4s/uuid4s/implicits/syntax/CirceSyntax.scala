@@ -1,10 +1,10 @@
-package org.typepure.uuid4s.implicits.syntax
+package org.pure4s.uuid4s.implicits.syntax
 
 import cats.effect.{IO, LiftIO}
 import io.circe.syntax._
 import io.circe.{Decoder, Encoder}
-import org.typepure.uuid4s.{FUUID, UUID}
-import org.typepure.uuid4s.implicits.liftIO._
+import org.pure4s.uuid4s.{FUUID, UUID}
+import org.pure4s.uuid4s.implicits.liftIO._
 
 trait CirceSyntax {
   implicit val uuidEncoder: Encoder[UUID] = Encoder.instance(_.toString.asJson)

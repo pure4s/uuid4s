@@ -1,4 +1,4 @@
-package org.typepure.uuid4s
+package org.pure4s.uuid4s
 
 import cats.effect.Sync
 import java.util.{UUID => JUUID}
