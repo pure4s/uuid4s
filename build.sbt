@@ -130,7 +130,7 @@ lazy val docs = project
     micrositeGithubRepo := "uuid4s",
     micrositeHighlightTheme := "tomorrow",
     micrositePushSiteWith := GitHub4s,
-    micrositeGithubToken := Some("79de083dbe6b78bde0f1b8121e4dfba54683adcd"), // sys.env.get("GITHUB_TOKEN"),
+    micrositeGithubToken := sys.env.get("GITHUB_TOKEN"),
     micrositeExtraMdFiles := Map(
       file("README.md") -> ExtraMdFileConfig(
         "index.md",
