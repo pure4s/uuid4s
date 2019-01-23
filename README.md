@@ -16,7 +16,7 @@ Add the following to your `build.sbt`.
 
 ```scala
 // For Scala 2.10, 2.11, or 2.12
-libraryDependencies += "io.github.typepure" %% "uuid4s" % "0.1.0"
+libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.0"
 ```
 
 ## Rationale
@@ -26,7 +26,7 @@ libraryDependencies += "io.github.typepure" %% "uuid4s" % "0.1.0"
 4. It has [documentation][docs].
 5. [It's modular](#modules).
 
-[docs]: https://typepure.github.io/uuid4s/
+[docs]: http://pure4s.org/uuid4s/
 [circe]: http://circe.io
 [fast-uuid]: https://github.com/jchambers/fast-uuid
 [http4s]: https://http4s.org/
@@ -49,7 +49,7 @@ Example 1:
 ```scala
 import cats.effect.IO
 import cats.implicits._
-import org.typepure.uuid4s.{FUUID, UUID}
+import org.pure4s.uuid4s.{FUUID, UUID}
 
 object BasicExampleMain extends App {
 

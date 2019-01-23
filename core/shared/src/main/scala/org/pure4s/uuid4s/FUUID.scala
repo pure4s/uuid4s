@@ -1,4 +1,4 @@
-package org.typepure.uuid4s
+package org.pure4s.uuid4s
 
 import java.util.{UUID => JUUID}
 import cats.{Hash, Order, Show}
@@ -7,7 +7,7 @@ import cats.implicits._
 
 final class UUID(val uuid: JUUID) {
   /**
-    * @param that is org.typepure.uuid4s.UUID
+    * @param that is org.pure4s.uuid4s.UUID
     * @return -1, 0 or 1 as this { @code UUID} is less than, equal to, or
     *         greater than { @code val}
     */

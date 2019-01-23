@@ -1,10 +1,10 @@
-package org.typepure.uuid4s
+package org.pure4s.uuid4s
 
 import cats.effect.IO
 import io.circe.Decoder
 import io.circe.Json
 import org.scalatest._
-import org.typepure.uuid4s.implicits.circe._
+import org.pure4s.uuid4s.implicits.circe._
 import io.circe.syntax._
 import org.scalatest.EitherValues._
 

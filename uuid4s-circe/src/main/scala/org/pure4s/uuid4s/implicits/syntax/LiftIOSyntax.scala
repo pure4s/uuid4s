@@ -1,4 +1,4 @@
-package org.typepure.uuid4s.implicits.syntax
+package org.pure4s.uuid4s.implicits.syntax
 
 import cats.effect.{IO, LiftIO}
 

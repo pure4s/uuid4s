@@ -1,6 +1,6 @@
 import cats.effect.{IO, Sync}
 import cats.implicits._
-import org.typepure.uuid4s.{FUUID, UUID}
+import org.pure4s.uuid4s.{FUUID, UUID}
 import cats.Id
 
 case class ProfileResponse(userId: String,
@@ -43,7 +43,7 @@ class ProfileRestRepository[F[_]: Sync](converter: ProfileConverter)
         ProfileResponse("7cfb70a9-0764-4851-a28c-309393aea2eb",
                         "example@example.com",
                         "e7f86fa0-ff91-47ba-baff-0954957af20f",
-                        "Typepure",
+                        "pure4s",
                         "http://example.com/example.jpg")).pure[F]
 
     for {

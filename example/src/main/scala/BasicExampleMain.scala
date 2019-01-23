@@ -1,6 +1,6 @@
 import cats.effect.IO
 import cats.implicits._
-import org.typepure.uuid4s.{FUUID, UUID}
+import org.pure4s.uuid4s.{FUUID, UUID}
 
 object BasicExampleMain extends App {
 
