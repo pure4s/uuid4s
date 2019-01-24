@@ -1,5 +1,7 @@
 package org.pure4s.uuid4s
 
+import java.util.UUID
+
 import cats.effect.IO
 import cats.implicits._
 import org.scalatest._

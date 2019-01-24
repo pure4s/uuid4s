@@ -1,8 +1,8 @@
-package org.pure4s.uuid4s.implicits.syntax
+package org.pure4s.uuid4s.circe.syntax
 
 import cats.effect.{IO, LiftIO}
 
-trait LiftIOSyntax {
+object LiftIOSyntax {
 
   type EitherEffect[A] = Either[Throwable, A]
 
