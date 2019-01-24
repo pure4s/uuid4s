@@ -2,7 +2,7 @@
 
 [comment]: # (Start Badges)
 
-[![Build Status](https://travis-ci.org/pure4s/uuid4s.svg?branch=master)](https://travis-ci.org/uuid4s/uuid4s)
+[![Build Status](https://travis-ci.org/pure4s/uuid4s.svg?branch=master)](https://travis-ci.org/pure4s/uuid4s)
 [![Maven Central](https://img.shields.io/badge/maven%20central-0.1.0-green.svg)](https://oss.sonatype.org/#nexus-search;gav~io.github.typepure~uuid4s*)
 [![codecov.io](https://codecov.io/gh/pure4s/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/pure4s/uuid4s)
 [![Join the chat at https://gitter.im/typepure-uuid4s/community](https://badges.gitter.im/typepure-uuid4s/community.svg)](https://gitter.im/typepure-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
