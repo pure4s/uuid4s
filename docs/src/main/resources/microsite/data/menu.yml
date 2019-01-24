@@ -1,6 +1,9 @@
 options:
-  - title: Getting Started
+  - title: Quick Start
     url: index.html
 
-  - title: Integration
-    url: integrations.html
+  - title: Modules
+    url: modules.html
+
+  - title: Examples
+    url: examples.html

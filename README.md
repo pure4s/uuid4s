@@ -41,11 +41,9 @@ libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.0"
 | Module name          | Description                                                  | Version |
 | -------------------- | ------------------------------------------------------------ | ------- |
 | `uuid4s`             | The core functionality of uuid4s                             | `0.1.0` |
-| `uuid4s-fast`        | Use fast uuid  [fast-uuid][fast-uuid]             | `0.1.0` |
+| `uuid4s-fast`        | Use fast uuid [fast-uuid][fast-uuid]                         | `0.1.0` |
 | `uuid4s-circe`       | Encode and decode HTTP entities with [Circe][circe]          | `0.1.0` |
 | `uuid4s-http4s`      | Run your HTTP requests with http4s [http4s][http4s]          | `0.1.0` |
-| `uuid4s-akka-http`   | Run your HTTP requests with akka-http [akka-http][akka-http] | `0.1.0` |
-
 
 ## Usage
 

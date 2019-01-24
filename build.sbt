@@ -114,14 +114,14 @@ lazy val fastJVM = fast.jvm
 
 lazy val docs = project
   .in(file("docs"))
-  .dependsOn(coreJVM, circeJVM)
+  .dependsOn(coreJVM, circeJVM, fastJVM)
   .settings(moduleName := "uuid4s-docs")
   .settings(buildSettings)
   .settings(compilerPlugins)
   .settings(noPublishSettings)
   .settings(
     micrositeName := "uuid4s",
-    micrositeDescription := "Functional UUID's for Scala",
+    micrositeDescription := "Purely functional UUID's for Scala",
     micrositeAuthor := "Liván Frómeta",
     micrositeBaseUrl := "uuid4s",
     micrositeUrl := "http://pure4s.org",
@@ -135,9 +135,7 @@ lazy val docs = project
       file("README.md") -> ExtraMdFileConfig(
         "index.md",
         "home",
-        Map("title" -> "Getting Started",
-            "section" -> "home",
-            "position" -> "0")
+        Map("title" -> "Quick Start", "section" -> "home", "position" -> "0")
       ),
       file("CHANGELOG.md") -> ExtraMdFileConfig(
         "changelog.md",
@@ -158,7 +156,7 @@ lazy val example = project
   .settings(buildSettings)
   .settings(noPublishSettings)
   .settings(compilerPlugins)
-  .dependsOn(coreJVM, circeJVM)
+  .dependsOn(coreJVM, circeJVM, fastJVM)
 
 addCommandAlias("validateDoc", ";docs/tut")
 addCommandAlias(
