@@ -6,7 +6,7 @@ inThisBuild(
   List(
     organization := "org.pure4s",
     sonatypeProfileName := "org.pure4s",
-    homepage := Some(url("http://pure4s.org/uuid4s/")),
+    homepage := Some(url("https://github.com/pure4s/uuid4s")),
     licenses := List(
       "Apache-2.0" -> url("https://opensource.org/licenses/MIT")),
     developers := List(
@@ -70,7 +70,7 @@ lazy val uuid4s = project
   .dependsOn(coreJVM, circeJVM, fastJVM)
   .aggregate(coreJVM, circeJVM, fastJVM)
 
-lazy val core = crossProject(JSPlatform, JVMPlatform)
+lazy val core = crossProject(JVMPlatform)
   .crossType(CrossType.Full)
   .in(file("core"))
   .settings(moduleName := "uuid4s")
@@ -82,7 +82,7 @@ lazy val core = crossProject(JSPlatform, JVMPlatform)
 
 lazy val coreJVM = core.jvm
 
-lazy val circe = crossProject(JSPlatform, JVMPlatform)
+lazy val circe = crossProject(JVMPlatform)
   .crossType(CrossType.Pure)
   .in(file("uuid4s-circe"))
   .settings(moduleName := "uuid4s-circe")
@@ -99,7 +99,7 @@ lazy val circe = crossProject(JSPlatform, JVMPlatform)
 
 lazy val circeJVM = circe.jvm
 
-lazy val fast = crossProject(JSPlatform, JVMPlatform)
+lazy val fast = crossProject(JVMPlatform)
   .crossType(CrossType.Pure)
   .in(file("uuid4s-fast"))
   .settings(moduleName := "uuid4s-fast")
