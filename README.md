@@ -3,13 +3,13 @@
 [comment]: # (Start Badges)
 
 [![Build Status](https://travis-ci.org/pure4s/uuid4s.svg?branch=master)](https://travis-ci.org/pure4s/uuid4s)
-[![Maven Central](https://img.shields.io/badge/maven%20central-0.1.2-green.svg)](https://oss.sonatype.org/#nexus-search;gav~io.github.typepure~uuid4s*)
+[![Maven Central](https://img.shields.io/badge/maven%20central-0.1.2-green.svg)](https://oss.sonatype.org/#nexus-search;gav~org.pure4s~uuid4s*)
 [![codecov.io](https://codecov.io/gh/pure4s/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/pure4s/uuid4s)
-[![Join the chat at https://gitter.im/typepure-uuid4s/community](https://badges.gitter.im/typepure-uuid4s/community.svg)](https://gitter.im/typepure-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![GitHub Issues](https://img.shields.io/github/issues/typepure/uuid4s.svg)](https://github.com/typepure/uuid4s/issues)
-[![GitHub PR](https://img.shields.io/github/issues-pr/typepure/uuid4s.svg)](https://github.com/typepure/uuid4s/pulls)
+[![Join the chat at https://gitter.im/pure4s-uuid4s/community](https://badges.gitter.im/pure4s-uuid4s/community.svg)](https://gitter.im/pure4s-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![GitHub Issues](https://img.shields.io/github/issues/pure4s/uuid4s.svg)](https://github.com/pure4s/uuid4s/issues)
+[![GitHub PR](https://img.shields.io/github/issues-pr/pure4s/uuid4s.svg)](https://github.com/pure4s/uuid4s/pulls)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.io/typepure/uuid4s.svg?style=flat)](http://hits.dwyl.io/typepure/uuid4s)
+[![HitCount](http://hits.dwyl.io/pure4s/uuid4s.svg?style=flat)](http://hits.dwyl.io/pure4s/uuid4s)
  
 [comment]: # (End Badges)
 
@@ -19,7 +19,7 @@ uuid4s is yet another functional uuid for Scala. It tries to be typeful and pure
 Add the following to your `build.sbt`.
 
 ```scala
-// For Scala 2.10, 2.11, or 2.12
+// For Scala 2.11, or 2.12
 libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.2"
 ```
 
