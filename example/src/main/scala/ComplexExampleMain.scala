@@ -2,7 +2,6 @@ import java.util.UUID
 import cats.effect.{IO, Sync}
 import cats.implicits._
 import org.pure4s.uuid4s.FUUID
-import cats.Id
 
 case class ProfileResponse(userId: String,
                            email: String,
@@ -10,9 +9,9 @@ case class ProfileResponse(userId: String,
                            companyName: String,
                            photo: String)
 
-case class Company(id: Id[UUID], name: String)
+case class Company(id: UUID, name: String)
 
-case class User(id: Id[UUID], email: String)
+case class User(id: UUID, email: String)
 
 case class Profile(user: User, company: Company, photo: String)
 
