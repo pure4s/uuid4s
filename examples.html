@@ -37,7 +37,6 @@
 <span class="k">import</span> <span class="nn">cats.effect.</span><span class="o">{</span><span class="nc">IO</span><span class="o">,</span> <span class="nc">Sync</span><span class="o">}</span>
 <span class="k">import</span> <span class="nn">cats.implicits._</span>
 <span class="k">import</span> <span class="nn">org.pure4s.uuid4s.FUUID</span>
-<span class="k">import</span> <span class="nn">cats.Id</span>
 
 <span class="k">case</span> <span class="k">class</span> <span class="nc">ProfileResponse</span><span class="o">(</span><span class="n">userId</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
                            <span class="n">email</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
@@ -45,9 +44,9 @@
                            <span class="n">companyName</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
                            <span class="n">photo</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
 
-<span class="k">case</span> <span class="k">class</span> <span class="nc">Company</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Id</span><span class="o">[</span><span class="kt">UUID</span><span class="o">],</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Company</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">UUID</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
 
-<span class="k">case</span> <span class="k">class</span> <span class="nc">User</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Id</span><span class="o">[</span><span class="kt">UUID</span><span class="o">],</span> <span class="n">email</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">User</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">UUID</span><span class="o">,</span> <span class="n">email</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
 
 <span class="k">case</span> <span class="k">class</span> <span class="nc">Profile</span><span class="o">(</span><span class="n">user</span><span class="k">:</span> <span class="kt">User</span><span class="o">,</span> <span class="n">company</span><span class="k">:</span> <span class="kt">Company</span><span class="o">,</span> <span class="n">photo</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
 
