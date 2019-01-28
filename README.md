@@ -47,7 +47,7 @@ libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.3"
 
 ## Usage
 
-Example 1:
+Example:
 ```scala
 import java.util.UUID
 import cats.effect.IO
