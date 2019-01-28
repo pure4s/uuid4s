@@ -6,6 +6,6 @@ docs: true
 collections:
   tut:
     output: true
-version: 0.1.3+3-08d55f9c+20190128-1959-SNAPSHOT
+version: 0.1.3+4-577a305d+20190128-2002-SNAPSHOT
 org: org.pure4s
 markdown: kramdown
