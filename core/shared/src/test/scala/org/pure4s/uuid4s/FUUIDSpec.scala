@@ -3,7 +3,6 @@ package org.pure4s.uuid4s
 import java.util.UUID
 
 import cats.effect.IO
-import cats.implicits._
 import org.scalatest._
 
 class FUUIDSpec extends FunSpec with Matchers with FUUIDArbitrary {
@@ -41,25 +40,6 @@ class FUUIDSpec extends FunSpec with Matchers with FUUIDArbitrary {
       val uuidResult: UUID = FUUID[IO].fromString(validUUIDAsString).unsafeRunSync()
       val uuidAsString: String = FUUID[IO].toString(uuidResult).unsafeRunSync()
       uuidAsString shouldBe validUUIDAsString
-    }
-  }
-  describe("comparing UUID") {
-    val uuid1 = FUUID[IO].fromString(validUUIDAsStringLT).unsafeRunSync()
-    val uuid2 = FUUID[IO].fromString(validUUIDAsStringGT).unsafeRunSync()
-    it(s"greater than (>)") {
-      assert(uuid2 > uuid1)
-    }
-    it(s"greater than (>=)") {
-      assert(uuid2 >= uuid1)
-    }
-    it(s"less than (<)") {
-      assert(uuid1 < uuid2)
-    }
-    it(s"less than (<=)") {
-      assert(uuid1 <= uuid2)
-    }
-    it(s"equals (==)") {
-      assert(uuid1 == uuid1)
     }
   }
 }
