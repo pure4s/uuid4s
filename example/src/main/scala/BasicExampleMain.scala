@@ -1,30 +1,13 @@
 import java.util.UUID
 import cats.effect.IO
-import cats.implicits._
 import org.pure4s.uuid4s.FUUID
-import org.pure4s.uuid4s.implicits._
 
 object BasicExampleMain extends App {
 
-  //Parsing
+  // Parsing
   val uuid1: UUID =
     FUUID[IO].fromString("7cfb70a9-0764-4851-a28c-309393aea2eb").unsafeRunSync()
 
-  //Generating
+  // Generating
   val uuid2: UUID = FUUID[IO].random.unsafeRunSync()
-
-  //Comparing
-  val result1: Boolean = uuid2 < uuid1
-  val result2: Boolean = uuid2 <= uuid1
-  val result3: Boolean = uuid1 > uuid2
-  val result4: Boolean = uuid1 >= uuid2
-  val result5: Boolean = uuid1 === uuid1
-
-  println(s" -> uuid1 = $uuid1")
-  println(s" -> uuid2 = $uuid2")
-  println(s" --> uuid2  <  uuid1 = $result1")
-  println(s" --> uuid2 <=  uuid1 = $result2")
-  println(s" --> uuid1  >  uuid2 = $result4")
-  println(s" --> uuid1 >=  uuid2 = $result4")
-  println(s" --> uuid1 === uuid1 = $result5")
 }
