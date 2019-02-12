@@ -27,6 +27,7 @@ lazy val V = new {
   val kindProjectorVersion = "0.9.9"
   val circeVersion = "0.11.0"
   val fastUUIDVersion = "0.1"
+  val logger4sVersion = "0.1.1"
 }
 
 val noPublishSettings = Seq(
