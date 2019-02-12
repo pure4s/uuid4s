@@ -1,5 +1,4 @@
 import java.util.UUID
-
 import cats.effect.IO
 import org.pure4s.uuid4s.FFUUID
 

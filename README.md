@@ -50,18 +50,17 @@ Example:
 ```scala
 import java.util.UUID
 import cats.effect.IO
-import cats.implicits._
 import org.pure4s.uuid4s.FUUID
-import org.pure4s.uuid4s.implicits._
 
-object BasicExampleMain extends App {
+object Main extends App {
 
-  //Parsing
-  val uuid1: UUID =
-    FUUID[IO].fromString("7cfb70a9-0764-4851-a28c-309393aea2eb").unsafeRunSync()
+  // Parsing
+  val uuid1: UUID = FUUID[IO].fromString("7cfb70a9-0764-4851-a28c-309393aea2eb").unsafeRunSync()
+  // uuid1: java.util.UUID = 7cfb70a9-0764-4851-a28c-309393aea2eb
 
-  //Generating
+  // Generating
   val uuid2: UUID = FUUID[IO].random.unsafeRunSync()
+  // uuid2: java.util.UUID = f94e2de4-1c08-4189-9664-105954589e52
 }
 ```
 
