@@ -3,7 +3,7 @@
 [comment]: # (Start Badges)
 
 [![Build Status](https://travis-ci.org/pure4s/uuid4s.svg?branch=master)](https://travis-ci.org/pure4s/uuid4s)
-[![Maven Central](https://img.shields.io/badge/maven%20central-0.1.3-green.svg)](https://oss.sonatype.org/#nexus-search;gav~org.pure4s~uuid4s*)
+[![Maven Central](https://img.shields.io/badge/maven%20central-0.1.5-green.svg)](https://oss.sonatype.org/#nexus-search;gav~org.pure4s~uuid4s*)
 [![codecov.io](https://codecov.io/gh/pure4s/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/pure4s/uuid4s)
 [![Join the chat at https://gitter.im/pure4s-uuid4s/community](https://badges.gitter.im/pure4s-uuid4s/community.svg)](https://gitter.im/pure4s-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![GitHub Issues](https://img.shields.io/github/issues/pure4s/uuid4s.svg)](https://github.com/pure4s/uuid4s/issues)
@@ -20,7 +20,7 @@ Add the following to your `build.sbt`.
 
 ```scala
 // For Scala 2.11, or 2.12
-libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.3"
+libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.5"
 ```
 
 ## Rationale
@@ -40,10 +40,9 @@ libraryDependencies += "org.pure4s" %% "uuid4s" % "0.1.3"
 
 | Module name          | Description                                                  | Version |
 | -------------------- | ------------------------------------------------------------ | ------- |
-| `uuid4s`             | The core functionality of uuid4s                             | `0.1.3` |
-| `uuid4s-fast`        | Use fast uuid [fast-uuid][fast-uuid]                         | `0.1.3` |
-| `uuid4s-circe`       | Encode and decode HTTP entities with [Circe][circe]          | `0.1.3` |
-| `uuid4s-http4s`      | Run your HTTP requests with http4s [http4s][http4s]          | `0.1.3` |
+| `uuid4s`             | The core functionality of uuid4s                             | `0.1.5` |
+| `uuid4s-fast`        | Use fast uuid [fast-uuid][fast-uuid]                         | `0.1.5` |
+| `uuid4s-circe`       | Encode and decode HTTP entities with [Circe][circe]          | `0.1.5` |
 
 ## Usage
 
@@ -63,13 +62,6 @@ object BasicExampleMain extends App {
 
   //Generating
   val uuid2: UUID = FUUID[IO].random.unsafeRunSync()
-
-  //Comparing
-  val result1: Boolean = uuid2 < uuid1
-  val result2: Boolean = uuid2 <= uuid1
-  val result3: Boolean = uuid1 > uuid2
-  val result4: Boolean = uuid1 >= uuid2
-  val result5: Boolean = uuid1 === uuid1
 }
 ```
 

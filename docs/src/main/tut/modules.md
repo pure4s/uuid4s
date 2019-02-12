@@ -16,7 +16,7 @@ To use uuid4s directly in you circe Json handling, you need add to your `build.s
 
 ```scala
 // For Scala 2.11, or 2.12
-libraryDependencies += "org.pure4s" %% "uuid4s-circe" % "0.1.3"
+libraryDependencies += "org.pure4s" %% "uuid4s-circe" % "0.1.5"
 ```
 
 An example using this module:
@@ -43,7 +43,7 @@ To use Fast UUID to for quickly and efficiently parsing and writing UUIDs, you n
 
 ```scala
 // For Scala 2.11, or 2.12
-libraryDependencies += "org.pure4s" %% "uuid4s-fast" % "0.1.3"
+libraryDependencies += "org.pure4s" %% "uuid4s-fast" % "0.1.5"
 ```
 
 An example using this module:
@@ -71,7 +71,7 @@ To use uuid4s to define http4s paths, you need add to your `build.sbt`:
 
 ```scala
 // For Scala 2.11, or 2.12
-libraryDependencies += "org.pure4s" %% "uuid4s-http4s" % "0.1.3"
+libraryDependencies += "org.pure4s" %% "uuid4s-http4s" % "0.1.5"
 ```
 
 An example using this module:
