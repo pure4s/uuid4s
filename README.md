@@ -5,11 +5,9 @@
 [![Build Status](https://travis-ci.org/pure4s/uuid4s.svg?branch=master)](https://travis-ci.org/pure4s/uuid4s)
 [![Maven Central](https://img.shields.io/badge/maven%20central-0.1.5-green.svg)](https://oss.sonatype.org/#nexus-search;gav~org.pure4s~uuid4s*)
 [![codecov.io](https://codecov.io/gh/pure4s/uuid4s/branch/master/graph/badge.svg)](https://codecov.io/gh/pure4s/uuid4s)
-[![Join the chat at https://gitter.im/pure4s-uuid4s/community](https://badges.gitter.im/pure4s-uuid4s/community.svg)](https://gitter.im/pure4s-uuid4s/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![GitHub Issues](https://img.shields.io/github/issues/pure4s/uuid4s.svg)](https://github.com/pure4s/uuid4s/issues)
 [![GitHub PR](https://img.shields.io/github/issues-pr/pure4s/uuid4s.svg)](https://github.com/pure4s/uuid4s/pulls)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.io/pure4s/uuid4s.svg?style=flat)](http://hits.dwyl.io/pure4s/uuid4s)
  
 [comment]: # (End Badges)
 
